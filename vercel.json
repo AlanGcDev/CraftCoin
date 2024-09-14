@@ -1,17 +1,15 @@
 {
     "builds": [
       {
-        "src": "your_project_name/wsgi.py",
+        "src": "App/wsgi.py",
         "use": "@vercel/python",
-        
-        "source": "/feedback/((?!general).*)",
-        "destination": "/api/feedback/general"
+        "config": {"maxLambdaSize": "15mb", "runtime": "python3.11.3"}
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "your_project_name/wsgi.py"
+        "dest": "App/wsgi.py"
       }
     ]
     
