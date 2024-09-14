@@ -2,7 +2,10 @@
     "builds": [
       {
         "src": "your_project_name/wsgi.py",
-        "use": "@vercel/python"
+        "use": "@vercel/python",
+        
+        "source": "/feedback/((?!general).*)",
+        "destination": "/api/feedback/general"
       }
     ],
     "routes": [
@@ -11,4 +14,5 @@
         "dest": "your_project_name/wsgi.py"
       }
     ]
+    
   }
