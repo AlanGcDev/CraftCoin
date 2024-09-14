@@ -1,0 +1,1631 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #171220;
+}
+
+@media (min-width: 768px) {
+
+    nav {
+        height: 15%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    nav img {
+        margin: 5%;
+        height: 100%;
+    }
+
+    #adblock-warning {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 20px;
+        text-align: center;
+        z-index: 1000;
+        display: none; /* Oculta inicialmente el mensaje */
+    }
+
+    /* Estilos para el overlay que bloquea la interacción */
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+        z-index: 999;
+        display: none; /* Oculta inicialmente el overlay */
+        cursor: not-allowed; /* Cursor para indicar que no se puede interactuar */
+    }
+
+    .adsbox {
+        display: block; /* Elemento que esperamos que sea bloqueado por el adblocker */
+    }
+
+    .search-server {
+        width: 40%;
+        height: 25%;
+        align-items: center;
+        align-content: center;
+        background-color: #2c233d;
+        border-radius: 1rem;
+        margin-left: 5%;
+    }
+
+    .search-server input {
+        background: none;
+        border: none;
+        color: #dfe3d5;
+        transition: ease-in 0.3s;
+        width: 85%;
+        margin-left: 5%;
+        font-size: 1rem;
+        font-family: "Poppins", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .search-server input:focus {
+        border: none;
+        background: none;
+        outline: none;
+        color: #dfe3d5;
+    }
+    
+
+    .search-server button {
+        background: none;
+        border: none;
+        font-size: 1rem;
+        color: #dfe3d5;
+        transition: ease-in 0.3s;
+    }
+
+    .search-server button:hover {
+        cursor: pointer;
+        color: #9fa199;
+    }
+
+    .user-data-nav {
+        justify-content:space-around;
+        align-items: center;
+        display: flex;
+        width: 50%;
+        flex-wrap: wrap;
+    }
+    .user-data-nav a {
+        text-decoration: none;
+        color: #dfe3d5;
+        font-family: "Poppins", system-ui;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 1.25rem;
+    }
+
+    .user-data-button {
+        background-color: #ecc544;
+        border-radius: 10rem;
+        padding: 0.5rem 2.5rem;
+        transition: ease-in 0.3s;
+    }
+
+    .user-data-button:hover {
+        background-color: #6e5c1e;
+    }
+
+    .user-data-nav .user-data-button {
+        color: #171220;
+    }
+
+    .user-data-cart {
+        padding: 1rem;
+        transition: ease-in 0.3s;
+    }
+
+    .user-data-cart:hover {
+        color: #9fa199;
+    }
+
+    .user-data-coin {
+        transition: ease-in 0.3s;
+    }
+
+    .user-data-coin i {
+        color: #ecc544;
+        margin: 1rem;
+    }
+
+    .user-data-coin:hover {
+        color: #9fa199;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 80%;
+    }
+
+    .menu {
+        margin: 0 1.5%;
+        width: 25%;
+        height: 95%;
+        background-color: #2c233d;
+        border-radius: 1rem;
+    }
+
+    .menu-index {
+        width: 90%;
+        margin-left: 5%;
+        color: #dfe3d5;
+    }
+
+    .menu-index h2 {
+        color: #9fa199;
+        font-family: "Poppins", system-ui;
+        font-weight: 800;
+        font-size: 2rem;
+        text-align: center;
+        font-style: normal;
+    }
+
+    .menu-index ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .menu-index ul li {
+        list-style: none;
+        margin: 1.25rem 0;
+        transition: ease-in 0.3s;
+        padding: 1rem 0;
+    }
+
+    .menu-index ul li:hover {
+        cursor: pointer;
+    }
+
+    .menu-index ul li a {
+        text-decoration: none;
+        color: #dfe3d5;
+        transition: ease-in 0.3s;
+        font-family: "Lato", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.25rem;
+        display: flex;
+        transition: ease-in 0.3s;
+    }
+
+    .menu-index ul li a:hover {
+        color: #ffffff50;
+    }
+
+    .menu-index ul li a i,.menu-index ul li a img {
+        margin: 0 .4rem;
+    }
+
+    .content {
+        margin-right: 1.5%;
+        width: 75%;
+        height: 95%;
+        overflow-y: auto;
+        background-color: #2c233d;
+        border-radius: 1rem;
+    }
+
+    .content::-webkit-scrollbar {
+        background: none;
+    }
+
+    .content-index {
+        width: 90%;
+        margin: 5%;
+        height: 100%;
+    }
+
+    .content-index h3 {
+        font-family: "Poppins", system-ui;
+        font-weight: 700;
+        font-style: normal;
+        color: #ecc544;
+        margin: 5% 0;
+    }
+
+    .content-index h1 {
+        text-align: center;
+        font-family: "Poppins", system-ui;
+        font-weight: 700;
+        font-style: normal;
+        color: #ecc544;
+        margin: 5% 0;
+    }
+
+    .content-index p {
+        color: #dfe3d5;
+        font-family: "Lato", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .content-index h4 {
+        padding: 5% 0;
+        color: #9fa199;
+        font-family: "Lato", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .image-container {
+        text-align: center;
+        position: relative;
+        width: 100%; /* Evita que el blur se salga del contenedor */
+    }
+    
+    .image-main {
+        width: 95%;
+        height: auto;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+        border-radius: 1rem;
+    }
+    
+    .image-container .image-blur {
+        position: absolute;
+        border-radius: 1rem;
+        top: 2%;
+        left: 2%;
+        width: 95%;
+        height: 100%;
+        filter: blur(10px); /* Ajusta el nivel de desenfoque */
+        transform: scale(1.05); /* Escala para crear el efecto de sombra */
+        z-index: 0;
+        opacity: 0.5;/* Ajusta la opacidad para un efecto más sutil */
+    }
+    
+
+    footer {
+        margin-top: 4rem;
+        border-top: #2c233d solid 0.3rem;
+        height: 25%;
+        display: flex;
+        align-items: center;
+        transition: ease-in 0.3s;
+    }
+
+    footer img {
+        margin: 0 1rem;
+        height: 60%;
+    }
+
+    .CraftCoin-footer {
+        width: 25%;
+        color: #dfe3d5;
+        text-align: center;
+    }
+    .CraftCoin-footer p {
+        margin: 0 1rem;
+        font-family: "Lato", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .CraftCoin-footer p a {
+        text-decoration: none;
+        color: #ecc544;
+        transition: ease-in 0.3s;
+        font-family: "Lato", system-ui;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .CraftCoin-footer p a:hover {
+        color: #6e5c1e;
+    }
+
+    .rterm {
+        width: 75%;
+        height: 100%;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .redes {
+        margin: 0 10%;
+        height: 50%;
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .redes a {
+        color: #dfe3d5;
+        font-size: 2.5rem;
+        transition: ease-in 0.3s;
+    }
+
+    .redes a:hover {
+        text-shadow: 0px 0px 15px #9fa199;
+        transform:translateY(-10px);
+    }
+
+    .terms {
+        width: 80%;
+        margin: 0 10%;
+        height: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+
+    .terms a {
+        text-align: center;
+        text-decoration: none;
+        color: #9fa199;
+        font-family: "Lato", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        transition: ease-in 0.3s;
+    }
+    
+    .terms a:hover {
+        color: #dfe3d5;
+    }
+
+    #timer {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    #button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #button:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+    }
+
+    .adcontainer {
+        margin: 1rem 5%;
+        width: 90%;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .coin-win {
+        text-align: center;
+    }
+
+    .coin-win h1 {
+        font-family: "Poppins", system-ui;
+        font-weight: 700;
+        font-style: normal;
+        color: #ecc544;
+        font-size: 3rem;
+    }
+
+    .coin-win p {
+        font-family: "Lato", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        color: #dfe3d5;
+        font-size: 1.5rem;
+    }
+
+    #container-34cf74f5d8c85b52210f874b5e06cafa {
+        height: auto;
+        width: 100%;
+    }
+
+    #countdownText {
+        font-family: "Lato", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        color: #6c757d;
+        font-size: 1.5rem;
+    }
+
+    #countdown {
+        color: #ecc544;
+        font-weight: 900;
+        font-size: 2rem;
+        margin: 0 0.5rem;
+    }
+
+    .banners-adds {
+        display: flex;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .big-adds {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+        align-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .adblocker-adv {
+        align-content: center;
+        background-color: #0000008c;
+        position: fixed;
+        height: 100%;
+        text-align: center;
+        top: 0rem;
+        width: 100%;
+        left: 0rem;
+        cursor: no-drop;
+    }
+
+    .adblocker-adv p {
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 3rem;
+    }
+
+    #adsterraButton {
+        text-align: center;
+        margin-left: 45%;
+        padding: 1rem;
+        border-radius: 1rem;
+        background: none;
+        border: none;
+        background-color: #ecc544;
+        color: #171220;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: ease-in 0.3s;
+        margin-top: -1rem;
+    }
+
+    #adsterraButton:hover {
+        box-shadow: 0px 0px 15px #6e5c1e, 0px 0px 25px #6c757d;
+        transform: scale(1.05);
+    }
+
+    .login-container {
+        width: 90%;
+        height: auto;
+        margin: 5%;
+        border: solid 0.3rem #2c233d;
+        border-radius: 2rem;
+        align-content: center;
+        text-align: center;
+        box-shadow: 0px 0px 25px #9fa199;
+    }
+
+    .nav-login {
+        height: 12%;
+        width: 100%;
+    }
+
+    .nav-login img {
+        height: 100%;
+        margin: 0;
+    }
+
+    .login {
+        align-items: center;
+        align-content: center;
+        background-color: #2c233d;
+        width: 50%;
+        height: auto;
+        margin: 5% 25%;
+        border-radius: 1rem;
+        color: #dfe3d5;
+    }
+
+    .login h2 {
+        font-family: "Poppins", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        color: #ecc544;
+        font-size: 2rem;
+    }
+
+    .login button {
+        background: none;
+        border: none;
+        background-color: #ecc544;
+        padding: 1rem;
+        border-radius: 1rem;
+        color: #171220;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 1.25rem;
+    }
+
+    .login-date label {
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal; 
+    }
+
+    .login-date {
+        margin: 1rem 0;
+    }
+
+    .login-date input {
+        outline: none;
+        border: none;
+    }
+
+    .content-login {
+        text-align: start;
+        align-content: center;
+        margin: 5% 35%;
+    }
+
+    .content-login p {
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    .content-login input {
+        outline: none;
+    }
+
+    .error-list {
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        color: red;
+        list-style-type: none;
+        padding-left: 0;
+      }
+      .error-message {
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        color: red;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      .container-multicuentas {
+        width: 90%;
+        margin: 5%;
+        height: auto;
+        background-color: #2c233d;
+        border-radius: 1rem;
+        color: #dfe3d5;
+      }
+
+      .container-multicuentas h2 {
+        font-family: "Poppins", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        color: #ecc544;
+        margin: 2rem 0;font-size: 2rem;
+      }
+
+      .container-multicuentas h1 {
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        color: #eb081f;
+        margin: 0rem 0;font-size: 2.5rem;
+      }
+
+      .container-multicuentas p {
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 1.25rem;
+      }
+
+      .container-multicuentas a {
+        padding: 1rem;
+        font-size: 1.15rem;
+        color: #171220;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        background-color: #007bff;
+        margin-left: 40%;
+        margin-top: 2.5%;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        width: 25%;
+        border-radius: 1rem;
+      }
+
+      .verify {
+        background-color: #2c233d;
+        width: 90%;
+        height: auto;
+        border-radius: 1rem;
+        margin: 5%;
+      }
+
+      .verify h2 {
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        color: #ecc544;
+        font-size: 2rem;
+      }
+
+      .verify p {
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        color: #dfe3d5;
+        font-size: 1.25rem;
+      }
+
+      .verify a, .btn-verify  {
+        color: #171220;
+        display: flex;
+        margin: 2.5% 40%;
+        justify-content: center;
+        background-color: #007bff;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 1rem;
+        border-radius: 1rem;
+        padding: 1rem;
+        text-decoration: none;
+      }
+
+      .login p{
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+      }
+
+      .login p a {
+        text-decoration: none;
+        cursor: pointer;
+        color: #007bff;
+        border-bottom: solid 0.1rem #6c757d;
+      }
+
+      .login-date a {
+        text-decoration: none;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        color: #6c757d;
+      }
+
+      .nav-perfil {
+        height: 10%;
+      }
+
+      .perfil-container {
+        width: 95%;
+        height: 80%;
+        display: flex;
+        margin: 2.5%; 
+        gap: 1rem;
+      }
+
+      .perfil-content {
+        width: 25%;
+        height: 100%;
+        background-color: #2c233d;
+        border-radius: 1rem;
+      }
+
+      .perfil-date-container {
+        width: 75%;
+        height: 100%;
+      }
+
+      .perfil-server-date-content {
+        border-radius: 1rem;
+        width: 100%;
+        height:  15%;
+        background-color: #2c233d;
+        margin-top: -1rem;
+      }
+
+      .perfil-date-content {
+        width: 100%;
+        height: 83%;
+        overflow-y: auto;
+        background-color: #2c233d;
+        border-radius: 1rem;
+        margin-top: 1rem;
+        color: #dfe3d5;
+      }
+
+      .perfil-date-content::-webkit-scrollbar {
+        background: none;
+      }
+
+      .login a {
+        text-decoration: none;
+        color: #ecc544;
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        margin-top: 1rem;
+        border-bottom: 0.15rem solid #9fa199;
+      }
+
+      .reset-pass-request {
+        width: 90%;
+        height: auto;
+        background-color: #2c233d;
+        border-radius: 1rem;
+        margin: 5%;
+        color: #dfe3d5;
+        text-align: center;
+      }
+
+      .reset-pass-request h2 {
+        font-family: "Poppins", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        margin-top: 1rem;
+        color: #ecc544;
+        font-size: 2rem;
+      }
+
+      .reset-pass-request form label {
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 1.15rem;
+      }
+
+      .reset-pass-request form input {
+        border: none;
+        outline: none;
+      }
+
+      .reset-pass-request button {
+        background: none;
+        border: none;
+        background-color: #ecc544;
+        border-radius: 1rem;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        padding: 1rem;
+        color: #171220;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .user-data-button-img {
+        background-color: #ecc544;
+        border-radius: 50%;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        max-width: 55px;
+        max-height: 55px;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+      }
+
+      .reset-pass-request h3 {
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+      }
+
+      .perfil-content-name {
+        text-align: center;
+        width: 100%;
+        margin: 1rem 0;
+      }
+
+      .perfil-content-name h2 {
+        font-family: "Poppins", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        color: #dfe3d5;
+      }
+
+      .perfil-content-name img {
+        background-color: #171220;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .perfil-content-menu {
+        text-align: center;
+        width: 100%;
+        margin: 15% 0; 
+      }
+
+      .perfil-content-menu a {
+        color: #dfe3d5;
+        text-decoration: none;
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 1.15rem;
+      }
+
+      .btn-logout {
+        text-align: center;
+        text-decoration: none;
+        color: #171220;
+        background-color: #eb081f;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        font-family: "Poppins", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 1.1rem;
+      }
+
+      .perfil-content-loguot {
+        width: 100%;
+        text-align: center;
+        height: auto;
+        margin-top: 80%;
+      }
+
+      .perfil-info-content {
+        margin: 5%;
+        width: 90%;
+        height: auto;
+      }
+
+      .perfil-info-content h3 {
+        color: #ecc544;
+        font-family: "Poppins", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      .perfil-info-content form label,
+      .perfil-info-content form p {
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 1.1rem;
+      }
+
+      .perfil-info-content form input {
+        outline: none;
+        background: none;
+        border: none;
+        border-bottom: 0.2rem solid #171220;
+        width: auto;
+        color: #dfe3d5;
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        margin: 0 1rem;
+        font-size: 1.1rem;
+      }
+
+      .perfil-info-content form button {
+        text-align: center;
+        padding: 0.5rem 2rem;
+        background-color: #ecc544;
+        border-radius: 1rem;
+        color: #171220;
+        cursor: pointer;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-size: 1.1rem;
+        font-style: normal;
+      }
+      .perfil-info-content form button i {
+        margin: 0 0.5rem;
+      }
+
+      .form-perfil-button {
+        width: 100%;
+        text-align: center;
+        margin: 4rem 0;
+      }
+
+      .custom-file {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #fileName {
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+
+    .form-group {
+        display: flex;
+        margin: 2rem 0;
+    }
+    
+    .custom-file {
+        margin-top: -1rem;
+        margin-left: 1rem;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        cursor: pointer;
+        border-radius: 2rem;
+        background-color: #007bff;
+        width: 30%;
+    }
+
+    .custom-file label i {
+        margin: 0 0.5rem;
+    }
+
+    .perfil-date-content-coins {
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-size: 2rem;
+        font-style: normal;        
+    }
+
+    .perfil-date-content-coins i {
+        color: #ecc544;
+    }
+    .perfil-date-content-coins span {
+        margin: 0 0.5rem;
+    }
+
+    .perfil-date-content-btn-reset-pass {
+        width: 100%;
+        margin: 4rem 0;
+        text-align: center;
+    }
+
+    .perfil-date-content-btn-reset-pass a {
+        text-decoration: none;
+        background-color: #007bff;
+        padding: 0.5rem 2rem ;
+        border-radius: 1rem;
+        color: #171220;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-size: 1.1rem;
+        font-style: normal;  
+    }
+
+    .new-server-container {
+        width: 100%;
+        height: 100%;
+    } 
+
+    .new-server-container a {
+        text-decoration: none;
+        color: #171220;
+        font-family: "Lato", system-ui;
+        font-weight: 900;
+
+    }
+
+    .new-server-container h1 {
+        color: #dfe3d5;
+        text-align: center;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-size: 2rem;
+        font-style: normal;
+    }
+
+    .new-server-content {
+        width: 90%;
+        margin: 5%;
+        height: 15%;
+        display: flex;
+        background-color: #ecc544;
+        border-radius: 1rem;
+    }
+
+    .new-server-content img {
+        height: 80%;
+        margin: 1%;
+    }
+
+    .new-server-content-info {
+        width: 75%;
+        margin: 0 15%;
+        display: flex;
+        gap: 2rem;
+    }
+
+    .cart-container {
+        width: 90%;
+        margin: 0 3.5%;
+        align-items: center;
+        height: 100%;
+    }
+
+    .cart-title {
+        color: #ecc544;
+        text-align: center;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-size: 2rem;
+        font-style: normal;
+
+    }
+
+    .cart-items {
+        width: 100%;
+        background-color: #ecc544;
+        height: auto;
+        border-radius: 1rem;
+        align-content: center;
+    }
+
+    .cart-item {
+        color: #dfe3d5;
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: -3.5%;
+        height: 5rem;
+        text-align: start;
+        align-content: center;
+        list-style: none;
+        background-color: #171220;
+        border-radius: 1.5rem;
+    }
+
+    .item-details {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .quantity-form {
+        width: 4rem;
+        height: 2.5rem;
+        margin-top: 1rem;
+        margin-right: 6rem;
+        font-family: "lato", system-ui;
+        font-weight: 900;
+        font-size: 1.25rem;
+        font-style: normal;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .quantity-btn- {
+        background-color: #c9061ab4;
+        color: #dfe3d5;
+        font-weight: 900;
+        text-align: center;
+        border: none;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        transition: ease-in 0.3s;
+    }
+
+    .quantity-btn-:hover {
+        background-color: #eb081f;
+        cursor: pointer;
+    }
+
+    .quantity-btn-m {
+        background-color: #00ff95b4;
+        color: #171220;
+        font-weight: 900;
+        text-align: center;
+        border: none;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        transition: ease-in 0.3s;
+    }
+
+    .quantity-btn-m:hover {
+        background-color: #00ff95;
+        cursor: pointer;
+    }
+
+    .quantity-form span {
+        align-content: center;
+    }
+
+    .cart-items-info {
+        display: flex;
+        color: #dfe3d5;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .item-details-part {
+        width: 30%;
+        height: 5rem;
+        font-size: 1rem;
+        text-align: left;
+        font-family: "lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+    }
+
+    .item-details-parts {
+        width: 5rem;
+        justify-content: center;
+        display: flex;
+        height: 5rem;
+    }
+
+    .item-details-parts-img {
+        height: 90%;
+        width: 100%;
+        margin: 5% 0;
+        
+    }
+
+    .cart-total {
+        width: 100%;
+        text-align: end;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        color: #dfe3d5;
+        font-size: 1.5rem;
+    }
+
+    .cart-total span {
+        margin: 0 0.25rem;
+    }
+
+    .check-form-content {
+        width: 105%;
+        margin: 10% 0;
+        height: 50%;
+        display: flex;
+        border-radius: 1rem;
+        justify-content: center;
+        background-color: #ecc544;
+    }
+
+    .checkout-form {
+        margin: 5%;
+        width: 90%;
+        color: #dfe3d5;
+        border-radius: 1rem;
+        background-color: #171220;
+    }
+
+    .form-group {
+        margin: 5%;
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    .form-group input {
+        outline: none;
+        font-family: "Lato", system-ui;
+        font-weight: 600;
+        font-style: normal;
+        color: #dfe3d5;
+        border: none;
+        background: none;
+        font-size: 1.1rem;
+        margin: 0 1rem;
+        border-bottom: solid 0.2rem #ecc544;
+    }
+
+    .checkout-btn-content {
+        text-align: center;
+    }
+
+    .checkout-btn {
+        background-color: #00ff95;
+        border: none;
+        border-radius: 1rem;
+        padding: 1rem;
+        font-family: "Lato", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        color: #171220;
+        font-size: 1.2rem;
+        transition: ease-in 0.3s;
+    }
+
+    .checkout-btn:hover {
+        cursor: pointer;
+        background-color: #00ff95b4;
+    }
+
+    .order-confirm-container {
+        width: 90%;
+        margin: 5%;
+    }
+
+    .order-confirm-container h1 {
+        text-align: center;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        color: #ecc544;
+        font-size: 2.25rem;
+    }
+
+    .order-confirm-content {
+        margin: 5% 0;
+        background-color: #ecc544;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .order-confirm-info {
+        background-color: #171220;
+        width: 90%;
+        margin: 5%;
+        border-radius: 1rem;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        color: #dfe3d5;
+    }
+
+    .order-confirm-info p, .order-confirm-info h2 {
+        margin: 5% 35%;
+    }
+
+    .order-confirm-info h2 {
+        color: #ecc544;
+        font-family: "Poppins", system-ui;
+        font-weight: 800;
+        font-style: normal;
+    }
+
+    .order-confirm-info span {
+        color: #00ff95;
+        margin: 0 .25rem;
+    }
+
+    .no-items-cart {
+        width: 90%;
+        height: 25%;
+        background-color: #ecc544;
+        margin: 5%;
+        text-align: center;
+        align-content: center;
+        border-radius: 1rem;
+    }
+
+    .no-items-cart p {
+        color: #171220;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        font-size: 2.3rem;
+    }
+
+    .server-container {
+        width: 100%;
+    }
+
+    .server-container h1 {
+        color: #ecc544;
+        text-align: center;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        font-size: 2.5rem;
+    }
+
+    .server-container h2 {
+        color: #007bff;
+        text-align: center;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        margin-top: -2rem;
+    }
+
+    .server-content {
+        width: 90%;
+        margin: 2.5%;
+        border-radius: 1rem;
+        background-color: #171220;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .server-contet-modality {
+        background-color: #ecc544;
+        height: 15%;
+        list-style: none;
+        border-radius: 1rem;
+        width: 15%;
+        text-align: center;
+        transition: ease-in 0.3s;
+        margin: 2.5% 0;
+    }
+
+    .server-contet-modality:hover {
+        background-color: #ecc544b9 ;
+        cursor: pointer;
+    }
+
+    .server-contet-modality a {
+        text-decoration: none;
+        color: #171220;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+    }
+
+    .server-contet-modality a img {
+        margin-top: 5%;
+        width: 50%;
+    }
+
+    .product-list-container {
+        width: 100%;
+    }
+
+    .product-list-container h1 {
+        color: #ecc544;
+        text-align: center;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        font-size: 2.5rem;
+    }
+
+    .product-list-container h2 {
+        color: #007bff;
+        text-align: center;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        margin-top: -2rem;
+    }
+
+    .product-grid {
+        width: 90%;
+        margin: 5%;
+        background-color: #171220;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 1rem;
+        justify-content: space-around;
+    }
+
+    .product-item {
+        width: 20%;
+        border-radius: 1rem;
+        height: 20%;
+        background-color: #ecc544;
+        text-align: center;
+        margin: 5% 0;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        color: #171220;
+        transition: ease-in 0.3s;
+    }
+
+    .product-item:hover {
+        background-color: #ecc544b9;
+        
+    }
+
+    .product-item h3 {
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        color: #171220;
+    }
+    .product-item a {
+        text-decoration: none;
+        background-color: #171220;
+        color: #dfe3d5;
+        padding: 0.5rem;
+        display: flex;
+        border-radius: 1rem;
+        justify-content: center;
+        width: 60%;
+        margin: 10% 15%;
+    }
+
+    .product-item button {
+        text-decoration: none;
+        background-color: #171220;
+        color: #dfe3d5;
+        padding: 0.5rem;
+        display: flex;
+        border-radius: 1rem;
+        justify-content: center;
+        width:70%;
+        margin: 10% 15%;
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        font-style: normal;
+        cursor: pointer;
+    }
+
+    .product-item img {
+        width: 60%;
+        margin-top: 1rem;
+    }
+
+    .terminos-container {
+        width: 90%;
+        margin: 5%;
+    }
+
+    .terminos-container h1 {
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        color: #ecc544;
+        font-size: 2.5rem;
+        font-style: normal;
+    }
+
+    .terminos-content p {
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        color: #9fa199;
+        text-align: start;
+    }
+
+    .terminos-container h3, .terminos-content h4 {
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        text-align: start;
+        color: #dfe3d5;
+    }
+
+    .search-results-container {
+        width: 100%;
+    }
+
+    .search-results-container h1 {
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        text-align: center;
+        color: #ecc544;
+    }
+
+    .search-results-container span {
+        margin: 0 0.5rem;
+        color: #007bff;
+    }
+
+    .search-results-list {
+        width: 90%;
+        display: block;
+        margin: 2.5%;
+        background-color: #171220;
+        border-radius: 1rem;
+        min-height: 80%;
+    }
+
+    .search-result-item {
+        width: 95%;position: relative;
+        border-radius: 1rem;
+        top: 2rem;
+        margin: 2rem 0;
+        background-color: #ecc544;
+        list-style: none;
+        height: 8rem;
+        transition: ease-in 0.3s;
+    }
+
+    .search-result-item:hover {
+        cursor: pointer;
+        background-color: #ecc544b9;
+    }
+
+    .search-result-item a {
+        text-decoration: none;
+        width: 100%;
+        display: flex;
+        height: 100%;
+    }
+
+    .server-info {
+        align-items: center;
+        display: flex;
+        width: 100%;
+    }
+
+    .server-info img {
+        margin: 0 2.5%;
+        align-content: center;
+        height: 60px;
+        width: 60px;
+    }
+
+    .server-details {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .server-details h2 {
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        text-align: center;
+        color: #171220;
+    }
+
+    .server-details p {
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        text-align: center;
+        color: #2c233d;
+    }
+
+    .cart-notification {
+        width: 90%;
+        margin: 5%;
+        background-color: #ecc544;
+        border-radius: 1rem;
+        min-height: 15%;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .cart-notification p {
+        font-family: "Lato", system-ui;
+        font-weight: 800;
+        text-align: center;
+        font-size: 1.75rem;
+        color: #171220;
+    }
+
+    .cart-notification span {
+        color: #007bff;
+        margin: 0 .75rem;
+        font-size: 2.5rem;
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+    }
+
+
+}
