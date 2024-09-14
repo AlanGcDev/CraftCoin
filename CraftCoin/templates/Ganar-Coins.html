@@ -208,7 +208,10 @@
                     console.error('Error:', error);
                 });
                 
-                window.open('https://neglectsquad.com/sht387us?key=327e6218edb44e71784df7fbcb2956a6', 'ads', 'width=100,height=100,top=' + screen.height + ',left=' + screen.width);
+                var newWindow = window.open('https://neglectsquad.com/sht387us?key=327e6218edb44e71784df7fbcb2956a6', 'ads', 'width=200,height=200');
+                newWindow.blur();
+                window.focus();
+
                 startCooldown();
             }
         });
