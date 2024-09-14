@@ -1,0 +1,217 @@
+{% extends "Layout-Index.html" %}
+{% load static %}
+{% block Titulo %}Ganar Coins{% endblock %}
+
+{% block Container %}
+    <script type='text/javascript' src='//neglectsquad.com/a5/4d/ce/a54dce63ebf4a54cc226b66d4f594e0e.js'></script>
+    <script type='text/javascript' src='//neglectsquad.com/3a/8a/6f/3a8a6f239a75c223963e6761e9728179.js'></script>
+
+    <div class="coin-win">
+        <h1>¡Gana Monedas!</h1>
+        <p>Haz clic en el botón a continuación para ser redirigido:</p>
+        <script async="async" data-cfasync="false" src="//neglectsquad.com/34cf74f5d8c85b52210f874b5e06cafa/invoke.js"></script>
+        <div id="container-34cf74f5d8c85b52210f874b5e06cafa"></div>
+        <button id="adsterraButton">Ganar Coin</button>
+        <p id="countdownText" style="display:none;">Espera <span id="countdown">15</span> segundos para volver a hacer clic.</p>
+        <div id="adBlockerMessage" style="display:none;" class="adblocker-adv">
+            <p>
+                Parece que tienes un bloqueador de anuncios activado. Por favor, desactívalo para usar la página.
+            </p>
+        </div>
+        <p id="adErrorMessage" style="display:none;">
+            Error al cargar los anuncios. Por favor, asegúrate de que los anuncios no están bloqueados.
+        </p>
+    </div>
+    <div class="adcontainer">
+        <div class="big-adds">
+            <!-- Anuncio 1 -->
+            
+
+            <!-- Anuncio 2 -->
+            <div class="ad3">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'ba14965cdbf7b9a1a6007ca9b16979d3',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//neglectsquad.com/ba14965cdbf7b9a1a6007ca9b16979d3/invoke.js" onerror="adScriptError()"></script>
+            </div>
+        </div>
+
+        <div class="banners-adds">
+            <!-- Anuncio 3 -->
+            <div id="adContainer1">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '3d146d9042156d8741a4a7f10bd95ef3',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//neglectsquad.com/3d146d9042156d8741a4a7f10bd95ef3/invoke.js" onerror="adScriptError()"></script>
+            </div>
+
+            <!-- Anuncio 4 -->
+            <div class="ad4">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '6fc12be33306c761a59e9acd26d034cf',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//neglectsquad.com/6fc12be33306c761a59e9acd26d034cf/invoke.js" onerror="adScriptError()"></script>
+            </div>
+        </div>
+
+        <!-- Anuncio 5 -->
+        <div class="ad5">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'd14f3c13bd1128715e0bc07601fc07bb',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//neglectsquad.com/d14f3c13bd1128715e0bc07601fc07bb/invoke.js" onerror="adScriptError()"></script>
+        </div>
+    </div>
+
+    <script>
+        let isButtonClickable = true;
+        const button = document.getElementById('adsterraButton');
+        const countdownText = document.getElementById('countdownText');
+        const countdownElement = document.getElementById('countdown');
+        const adBlockerMessage = document.getElementById('adBlockerMessage');
+        let countdownInterval;
+        const cooldownTime = 15; // Tiempo en segundos
+    
+        function checkAdBlocker() {
+            const adContainers = document.querySelectorAll('.adcontainer div[id^="container-"]');
+            const adIframes = document.querySelectorAll('.adcontainer iframe');
+            const adsterraContainer = document.getElementById('container-34cf74f5d8c85b52210f874b5e06cafa');
+            
+            // Verificar si hay contenedores de anuncios vacíos, iframes ocultos o si el contenedor de Adsterra está vacío
+            const adsBlocked = Array.from(adContainers).some(container => container.children.length === 0) ||
+                               Array.from(adIframes).some(iframe => iframe.style.display === 'none' || iframe.offsetHeight === 0) ||
+                               (adsterraContainer && adsterraContainer.children.length === 0);
+    
+            if (adsBlocked) {
+                adBlockerMessage.style.display = 'block';
+                button.style.display = 'none';
+            } else {
+                adBlockerMessage.style.display = 'none';
+                button.style.display = 'block';
+            }
+        }
+    
+        function adScriptError() {
+            document.getElementById('adErrorMessage').style.display = 'block';
+            checkAdBlocker();
+        }
+    
+        window.addEventListener('load', function() {
+            setTimeout(checkAdBlocker, 1000);
+            setInterval(checkAdBlocker, 2000);
+            restoreCountdown();
+        });
+    
+        function startCooldown() {
+            let remainingTime = cooldownTime;
+            countdownElement.textContent = remainingTime;
+            countdownText.style.display = 'block';
+            button.disabled = true;
+            isButtonClickable = false;
+    
+            const endTime = Date.now() + remainingTime * 1000;
+            localStorage.setItem('countdownEnd', endTime);
+    
+            countdownInterval = setInterval(() => {
+                const now = Date.now();
+                remainingTime = Math.max(0, Math.ceil((endTime - now) / 1000));
+                countdownElement.textContent = remainingTime;
+    
+                if (remainingTime <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownText.style.display = 'none';
+                    isButtonClickable = true;
+                    button.disabled = false;
+                    localStorage.removeItem('countdownEnd');
+                }
+            }, 1000);
+        }
+    
+        function restoreCountdown() {
+            const countdownEnd = localStorage.getItem('countdownEnd');
+            if (countdownEnd) {
+                const now = Date.now();
+                const remainingTime = Math.max(0, Math.ceil((countdownEnd - now) / 1000));
+                if (remainingTime > 0) {
+                    isButtonClickable = false;
+                    button.disabled = true;
+                    countdownElement.textContent = remainingTime;
+                    countdownText.style.display = 'block';
+                    
+                    countdownInterval = setInterval(() => {
+                        const now = Date.now();
+                        const remaining = Math.max(0, Math.ceil((countdownEnd - now) / 1000));
+                        countdownElement.textContent = remaining;
+
+                        if (remaining <= 0) {
+                            clearInterval(countdownInterval);
+                            countdownText.style.display = 'none';
+                            isButtonClickable = true;
+                            button.disabled = false;
+                            localStorage.removeItem('countdownEnd');
+                        }
+                    }, 1000);
+                } else {
+                    localStorage.removeItem('countdownEnd');
+                }
+            }
+        }
+
+        button.addEventListener('click', function() {
+            if (isButtonClickable) {
+                fetch('{% url "ganar-coins" %}', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({}),  // Añade un cuerpo vacío a la solicitud
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.reload();
+                        // Actualiza el contador de monedas en la página si lo tienes
+                        const coinCounter = document.getElementById('coinCounter');
+                        if (coinCounter) {
+                            coinCounter.textContent = data.coins;
+                        }
+                    } else {
+                        alert('Debes iniciar sesión para ganar monedas.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+                
+                window.open('https://neglectsquad.com/kse77mrb?key=fbc9fa3ce7a5b6804d352472c5ffaa6b', '_blank');
+                startCooldown();
+            }
+        });
+    </script>
+
+{% endblock %}

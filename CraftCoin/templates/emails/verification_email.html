@@ -1,0 +1,77 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica tu cuenta</title>
+    <style>
+        body, table {
+            background-color: #171220;
+        }
+
+        td h1 {
+            color: #ecc544;
+            font-size: 2.5rem;
+            font-family: "Poppins", system-ui;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        td p {
+            color: #dfe3d5;
+            font-family: "Lato", system-ui;
+            font-weight: 800;
+            font-style: normal;
+            font-size: 1.15rem;
+        }
+
+        .btn-craft {
+            text-decoration: none;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .btn-verify {
+            background-color: #00fa92;
+            color: #171220;
+            align-items: center;
+            text-decoration: none;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            transition: ease-in 0.3s;
+            width: 30%;
+            justify-content: center;
+            display: flex;
+        }
+
+        .btn-verify:hover {
+            box-shadow: 0px 0px 15px #dfe3d5;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="center">
+                <table width="600" border="0" cellspacing="0" cellpadding="0" style="background-color: #171220; padding: 20px; border-radius: 5px;">
+                    <tr>
+                        <td align="center">
+                            <h1>Verifica tu cuenta</h1>
+                            <p>Hola {{ user.username }},</p>
+                            <p>Gracias por registrarte. Para completar tu registro, por favor verifica tu cuenta haciendo clic en el siguiente botón: <br> <br> <br></p>
+                            <p style="margin: 25px 0;">
+                                <a class="btn-verify" href="{{ verification_url }}">Verificar cuenta</a> <br> <br> <br>
+                            </p>
+                            <p>Si el botón no funciona, copia y pega el siguiente enlace en tu navegador:</p>
+                            <p>{{ verification_url }}</p>
+                            <p>Este enlace expirará en 10 minutos.</p>
+                            <p>Si no has solicitado esta verificación, por favor ignora este correo.</p>
+                            <p>Saludos,<br><a class="btn-craft">El equipo de CraftCoin</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% extends "Layout-Index.html" %}
+{% load static %}
+{% block Titulo %}Cart{% endblock %}
+
+{% block Container %}
+<div class="cart-container">
+    <h1 class="cart-title">Tu Carrito <i class="fa-solid fa-cart-shopping"></i></h1>
+    {% if cart_items %}
+        <ul class="cart-items">
+        {% for item in cart_items %}
+            <li class="cart-item">
+                <div class="item-details">
+
+                    <div class="item-details-parts">
+                        <img class="item-details-parts-img" src=" {{ item.image_url }} " alt="{{ item.product_name }}">
+                        
+                    </div>
+                    <div class="item-details-part">
+                        <p class="item-name">{{ item.product_name }}</p>
+                        <p class="item-price">Precio: <span>{{ item.product_price }}</span></p>
+
+                    </div>
+
+                
+                    <form class="quantity-form" action="{% url 'update_cart' item.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="quantity-btn- decrease" type="submit" name="action" value="decrease"><i class="fa-solid fa-minus"></i></button>
+                        <span class="quantity-display">{{ item.quantity }}</span>
+                        <button class="quantity-btn-m increase" type="submit" name="action" value="increase"><i class="fa-solid fa-plus"></i></button>
+                    </form>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+        <p class="cart-total">Total: <span>{{ total }}</span> monedas</p>
+        <div class="check-form-content">
+        <form class="checkout-form" action="{% url 'checkout' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="minecraft_name">Nombre de Minecraft:</label>
+                <input type="text" id="minecraft_name" name="minecraft_name" required>
+            </div>
+            <div class="form-group">
+                <label for="discord_name">Nombre de Discord (opcional):</label>
+                <input type="text" id="discord_name" name="discord_name">
+            </div>
+            <div class="checkout-btn-content">
+            <button class="checkout-btn" type="submit">Realizar pedido <i class="fa-solid fa-receipt"></i></button>
+        </div>
+        </form>
+    </div>
+    {% else %}
+    <div class="no-items-cart">
+            <p class="empty-cart-message"><i class="fa-solid fa-triangle-exclamation"></i>¡Tu carrito está vacío! <i class="fa-solid fa-triangle-exclamation"></i></p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

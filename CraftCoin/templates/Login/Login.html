@@ -1,0 +1,26 @@
+{% extends "Login/Layout-Login.html" %}
+{% load static %}
+{% block Titulo %}Login{% endblock %}
+{% block Container %}
+
+    {% if action %}
+    <div class="cart-notification">
+        <p>Necesitas iniciar sesión o registrarte para </p><span>{{ action }}</span>
+    </div>
+    {% endif %}
+
+    <div class="login">
+        <h2>Iniciar Sesión</h2>
+        <form class="login-date" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ next }}">
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <a href="{% url "password_reset_request" %}">¿Olvidaste Tu Contraseña?</a>
+        <br>
+        <br>
+        <p>¿No tienes una cuenta aun? <a href="{% url "register" %}"> Registra Aquí</a></p>
+    </div>
+
+{% endblock %}

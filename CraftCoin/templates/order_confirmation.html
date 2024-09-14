@@ -1,0 +1,24 @@
+{% extends "Layout-Index.html" %}
+{% load static %}
+{% block Titulo %}Order Confirmation{% endblock %}
+
+{% block Container %}
+
+    <div class="order-confirm-container">
+        <h1>Confirmación de pedido</h1>
+
+        <div class="order-confirm-content">
+            <div class="order-confirm-info">
+                <h2>¡Gracias <span>{{user.username}}</span> por tu pedido!</h2>
+                
+                <p>Order Folio: <span>{{ order.folio }}</span> </p>
+                <p>Total: <span>{{ order.total_price }} coins</span> </p>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+{% endblock %}
+    
+

@@ -1,0 +1,82 @@
+{% extends "Login/Layout-Login.html" %}
+{% load static %}
+{% block Titulo %}Registrarse{% endblock %}
+
+{% block Container %}
+<div class="login">
+    <h2>Registro</h2>
+    <form method="post" id="registerForm">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="login-date">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.username.errors }}
+    </div>
+    <div class="login-date">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {{ form.email.errors }}
+    </div>
+    <div class="login-date">
+        {{ form.password1.label_tag }}
+        {{ form.password1 }}
+        <ul id="password-errors" class="error-list"></ul>
+        {{ form.password1.errors }}
+    </div>
+    <div class="login-date">
+        {{ form.password2.label_tag }}
+        {{ form.password2 }}
+        <p id="password-match-error" class="error-message"></p>
+        {{ form.password2.errors }}
+    </div>
+    <div class="login-date">
+        {{ form.terms_and_conditions }}
+        <a href="{% url "terminos" %}">Terminos y Condiciones</a>
+        {{ form.terms_and_conditions.errors }}
+    </div>
+    <button type="submit">Registrarse</button>
+    </form>
+    <p><a href="{% url "login" %}">Iniciar Sesion</a></p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const password1 = document.getElementById('password1');
+    const password2 = document.getElementById('password2');
+    const passwordErrors = document.getElementById('password-errors');
+    const passwordMatchError = document.getElementById('password-match-error');
+
+    function validatePassword() {
+      const value = password1.value;
+      const errors = [];
+
+      if (value.length < 8) {
+        errors.push("La contraseña debe tener al menos 8 caracteres.");
+      }
+      if (!/[A-Z]/.test(value)) {
+        errors.push("La contraseña debe contener al menos una mayúscula.");
+      }
+      if (!/[0-9]/.test(value)) {
+        errors.push("La contraseña debe contener al menos un número.");
+      }
+      if (!/[^A-Za-z0-9]/.test(value)) {
+        errors.push("La contraseña debe contener al menos un símbolo.");
+      }
+
+      passwordErrors.innerHTML = errors.map(error => `<li>${error}</li>`).join('');
+    }
+
+    function checkPasswordMatch() {
+      if (password1.value !== password2.value) {
+        passwordMatchError.textContent = "Las contraseñas no coinciden.";
+      } else {
+        passwordMatchError.textContent = "";
+      }
+    }
+
+    password1.addEventListener('input', validatePassword);
+    password2.addEventListener('input', checkPasswordMatch);
+  });
+</script>
+{% endblock %}

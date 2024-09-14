@@ -1,0 +1,49 @@
+{% extends "Login/Layout-Perfil.html" %}
+{% load static %}
+{% block Titulo %}Perfil{% endblock %}
+
+{% block Container %}
+
+<div class="perfil-info-content">
+    <h3>Información de usuario</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ user.email }}</p>
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Nombre de usuario:</label>
+            .{{ form.username }}
+        </div>
+        
+        <!-- Personalizar el campo 'profile_picture' -->
+        <div class="form-group">
+            <label for="{{ form.profile_picture.id_for_label }}">Foto de perfil:</label>
+            
+            <!-- Botón personalizado para seleccionar imagen -->
+            <div class="custom-file">
+                <input type="file" id="profilePictureInput" name="profile_picture" style="display: none;">
+                <label for="profilePictureInput" class="btn btn-primary" id="fileLabel"><i class="fa-solid fa-upload"></i> Seleccionar imagen</label>
+                <span id="fileName" class="text-muted"></span>
+            </div>
+        </div>
+        <div class="form-perfil-button">
+            <button type="submit"><i class="fa-regular fa-circle-check"></i>Actualizar perfil</button>
+        </div>
+    </form>
+    <p class="perfil-date-content-coins">Coins: <span>{{ user.coins }}</span> <i class="fa-solid fa-coins"></i></p>
+    <div class="perfil-date-content-btn-reset-pass">
+        <a href="{% url 'password_reset_request' %}">Cambiar contraseña</a>
+    </div>
+</div>
+<script>
+    document.getElementById('profilePictureInput').addEventListener('change', function() {
+        var fileName = this.files[0].name; // Obtén el nombre del archivo
+        var fileLabel = document.getElementById('fileLabel');
+        var fileNameSpan = document.getElementById('fileName');
+
+        // Actualiza el texto del botón con el nombre del archivo
+        fileLabel.textContent = fileName;
+    });
+</script>
+
+
+{% endblock %}

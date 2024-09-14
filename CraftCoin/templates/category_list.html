@@ -1,0 +1,20 @@
+{% extends "Layout-Index.html" %}
+{% load static %}
+{% block Titulo %} {{ app|title }} {% endblock %}
+
+{% block Container %}
+<div class="server-container">
+    <h1>{{ app|title }}</h1>
+    <h2> {{ modality }} </h2>
+    <ul class="server-content">
+        {% for product in products %}
+            <li class="server-contet-modality">
+                <a href="{% url 'product_list' app product.modality product.category %}">
+                    <img src="{{ product.image_category.url }}" alt="{{ product.category }} image" />
+                    <p>{{ product.category }}</p>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

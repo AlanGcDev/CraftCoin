@@ -1,0 +1,22 @@
+<h1>Nuevo pedido de CraftCoin</h1>
+<p>Se ha realizado un nuevo pedido.</p>
+<p>Usuario: {{ user.username }}</p>
+<p>Número de Folio: {{ order.folio }}</p>
+<p>Clave Secreta: {{ order.secret_key }}</p>
+<p>Total: {{ order.total_price }} monedas</p>
+<h2>Productos:</h2>
+<ul>
+{% for item in order_items %}
+    <li>
+        <strong>{{ item.name }}</strong> - Cantidad: {{ item.quantity }}
+        <br>
+        Servidor: {{ item.app_name }} | Modalidad: {{ item.modality }} | Categoría: {{ item.category }}
+        <br>
+        Precio: {{ item.price }} monedas
+    </li>
+{% endfor %}
+</ul>
+<p>Nombre de Minecraft: {{ order.minecraft_name }}</p>
+{% if order.discord_name %}
+<p>Nombre de Discord: {{ order.discord_name }}</p>
+{% endif %}

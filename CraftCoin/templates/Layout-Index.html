@@ -1,0 +1,18 @@
+{% extends "Layout.html" %}
+{% load static %}
+{% block Titulo %}{% endblock %}
+
+
+{% block Menu_Container %}
+<div class="menu-index">
+    <h2>CraftCoin</h2>
+    <ul>
+        <li><a href="{% url "index" %}"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="{% url "servers-top" %}"><i class="fa-solid fa-trophy"></i>Servidores Top</a></li>
+        <li><a href="{% url "app_list" %}"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/new.png" alt="new"/>Nuevos Servidores</a></li>
+        <li><a href="{% url "ganar-coins" %}"><i class="fa-solid fa-coins"></i>Ganar Coins</a></li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block Container %}{% endblock %}

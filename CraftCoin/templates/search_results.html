@@ -1,0 +1,38 @@
+{% extends "Layout-Index.html" %}
+{% load static %}
+
+{% block Titulo %}Resultados de búsqueda{% endblock %}
+
+{% block Container %}
+<div class="search-results-container">
+    <h1>Resultados de búsqueda de <span>"{{ query }}"</span></h1>
+    {% if results %}
+        <ul class="search-results-list">
+        {% for server in results %}
+        <div class="search-result-item-content">
+
+            <li class="search-result-item">
+                <a href="{% url 'modality_list' server.app_name %}">
+                    <div class="server-info">
+                        
+                        {% if server.image %}
+                            <img src="{{ server.image.url }}" alt="Server Image" class="server-image">
+                        {% else %}
+                            <img src="{% static 'images/default-server-image.png' %}" alt="Default Image" class="server-image">
+                        {% endif %}
+                        <div class="server-details">
+                            <h2> {{ server.app_name }} </h2>
+                            <h2>{{ server.ip_address }}</h2>
+                            <p>Puerto: {{ server.port }}</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </div>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron resultados para "{{ query }}".</p>
+    {% endif %}
+</div>
+{% endblock %}

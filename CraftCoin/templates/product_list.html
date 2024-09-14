@@ -1,0 +1,19 @@
+{% extends "Layout-Index.html" %}
+{% block Titulo %} {{ app|title }} {% endblock %}
+
+{% block Container %}
+<div class="product-list-container">
+    <h1>{{ app|title }} </h1>
+    <h2> {{ modality }} - {{ category }}</h2>
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-item">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>Precio: {{ product.price }} monedas</p>
+            <a href="{% url 'product_detail' app modality category product.slug %}">Ver detalles</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

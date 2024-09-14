@@ -1,0 +1,22 @@
+{% extends "Layout-Index.html" %}
+{% block Titulo %} {{ app|title }} {% endblock %}
+
+{% block Container %}
+<div class="product-list-container">
+    <h1>{{ product.name }}</h1>
+    <div class="product-grid">
+        <div class="product-item">
+
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <p>Precio: {{ product.price }} monedas</p>
+            <p>{{ product.description }}</p>
+            <form action="{% url 'add_to_cart' app product.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Agregar al carrito</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}

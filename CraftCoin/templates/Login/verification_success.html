@@ -1,0 +1,12 @@
+{% extends "Login/Layout-Login.html" %}
+{% load static %}
+{% block Titulo %}Verificacion Exitosa{% endblock %}
+
+{% block Container %}
+    <div class="verify">
+        <h2>Verificación Exitosa</h2>
+        <p>Tu cuenta ha sido verificada exitosamente. Ahora puedes iniciar sesión.</p>
+        <a href="{% url "login" %}">Iniciar Sesión</a>
+    </div>
+  
+{% endblock %}

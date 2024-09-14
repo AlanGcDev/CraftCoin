@@ -1,0 +1,17 @@
+{% extends "Login/Layout-Login.html" %}
+{% load static %}
+{% block Titulo %}Multicuentas{% endblock %}
+
+{% block Container %}
+
+<div class="container-multicuentas">
+    <h1>Advertencia:</h1>
+    <h2>Múltiples Cuentas</h2>
+    <p>Ya existe una cuenta asociada a tu dirección IP. No se permite crear múltiples cuentas desde la misma dirección IP.</p>
+    <p>Si crees que esto es un error, por favor contacta con el soporte.</p>
+    <a href="{% url 'login' %}" class="btn btn-primary">Volver al inicio de sesión</a>
+</div>
+
+
+{% endblock %}
+

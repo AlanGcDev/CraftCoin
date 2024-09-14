@@ -1,0 +1,27 @@
+{% extends "Layout-Index.html" %}
+{% load static %}
+{% block Titulo %}New Servers{% endblock %}
+
+{% block Container %}
+
+<div class="new-server-container">
+    <h1>Nuestras Tiendas</h1>
+    {% for server_info in server_info_list %}
+    <a href="{% url 'modality_list' server_info.app_name %}">
+        <div class="new-server-content">
+
+            <img src="{{ server_info.image_url }}" alt="Imagen del servidor" />
+            
+            <div class="new-server-content-info">
+                <p>Server Name: {{ server_info.app_name }}</p>
+                <p>IP Address: {{ server_info.ip_address }}</p>
+                <p>Port: {{ server_info.port }}</p>
+            </div>
+            
+        
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}
