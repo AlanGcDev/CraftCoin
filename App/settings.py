@@ -12,9 +12,9 @@ SECRET_KEY = '*53H&St0]7BG;lCv{=y7Pd2c#o#s{w:pn5smlj3e#&We>5bew}'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 AUTH_USER_MODEL = 'CraftCoin.CustomUser'
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
 LOGGING = {
     'version': 1,

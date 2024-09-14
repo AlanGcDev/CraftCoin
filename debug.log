@@ -6615,3 +6615,4 @@ STREAM b'pHYs' 41 9
 STREAM b'IDAT' 62 8192
 D:\Paginas Web\CraftCoin\Web\App\settings.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
