@@ -4,12 +4,8 @@ from vercel_blob import VercelBlob
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
-DEFAULT_FILE_STORAGE = 'vercel_blob.VercelBlobStorage'
-VERCEL_BLOB_READ_WRITE_TOKEN = 'vercel_blob_rw_XkXFe8Qx26azIf6W_W8lZUkExIURrGDWLZf6Uy4wT8WFRcS'
-DEFAULT_FILE_STORAGE = 'vercel_blob.VercelBlobStorage'
-VERCEL_BLOB_READ_WRITE_TOKEN = os.environ.get('VERCEL_BLOB_READ_WRITE_TOKEN')
+DEFAULT_FILE_STORAGE = 'vercel_blob.storage.VercelBlobStorage'
+VERCEL_BLOB_READ_WRITE_TOKEN = os.environ.get('VERCEL_BLOB_READ_WRITE_TOKEN', 'vercel_blob_rw_XkXFe8Qx26azIf6W_W8lZUkExIURrGDWLZf6Uy4wT8WFRcS')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
