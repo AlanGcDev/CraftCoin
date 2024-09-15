@@ -1,7 +1,11 @@
 from django.urls import path
+from django.conf.urls import handler500
 from . import views
+from .views import custom_error_view
+handler500 = custom_error_view
 
 urlpatterns = [
+    
     path('', views.Index, name='index'),
     path('servers-top/', views.Servers_Top, name='servers-top'),
     path('ganar-coins/', views.Ganar_Coins, name='ganar-coins'),

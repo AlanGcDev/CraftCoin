@@ -1,9 +1,15 @@
 from pathlib import Path
 import os
+from vercel_blob import VercelBlob
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+DEFAULT_FILE_STORAGE = 'vercel_blob.VercelBlobStorage'
+VERCEL_BLOB_READ_WRITE_TOKEN = '6fDYS8kUOqIT@ep'
+DEFAULT_FILE_STORAGE = 'vercel_blob.VercelBlobStorage'
+VERCEL_BLOB_READ_WRITE_TOKEN = os.environ.get('VERCEL_BLOB_READ_WRITE_TOKEN')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -19,14 +25,31 @@ ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
         },
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'INFO',
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': '/tmp/django-errors.log',
+            'formatter': 'verbose',
+        },
+        'console': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
     },
 }
 
@@ -66,6 +89,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'CraftCoin.middleware.ExceptionLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'App.urls'
@@ -104,8 +128,12 @@ DATABASES = {
         'OPTIONS': {
             'sslmode': 'require',
         },
+        'CONN_MAX_AGE': 0,
     }
 }
+# En settings.py
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB
 
 
 # Password validation
@@ -147,7 +175,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Media files
-MEDIA_URL = '/media/'
+MEDIA_URL = 'https://your-project-name.vercel.app/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type

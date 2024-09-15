@@ -27,8 +27,22 @@ from django.contrib import messages
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from .decorators import login_required_with_message
+import logging
+from django.http import HttpResponseServerError
+from django.views.decorators.csrf import requires_csrf_token
 
 logger = logging.getLogger(__name__)
+
+@requires_csrf_token
+def custom_error_view(request, exception=None):
+    logger.error('Server Error: %s', request.path,
+        exc_info=exception,
+        extra={
+            'status_code': 500,
+            'request': request
+        }
+    )
+    return HttpResponseServerError("Server Error (500)")
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
