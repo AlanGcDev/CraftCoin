@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 DEFAULT_FILE_STORAGE = 'vercel_blob.VercelBlobStorage'
-VERCEL_BLOB_READ_WRITE_TOKEN = '6fDYS8kUOqIT@ep'
+VERCEL_BLOB_READ_WRITE_TOKEN = 'vercel_blob_rw_XkXFe8Qx26azIf6W_W8lZUkExIURrGDWLZf6Uy4wT8WFRcS'
 DEFAULT_FILE_STORAGE = 'vercel_blob.VercelBlobStorage'
 VERCEL_BLOB_READ_WRITE_TOKEN = os.environ.get('VERCEL_BLOB_READ_WRITE_TOKEN')
 # Quick-start development settings - unsuitable for production
