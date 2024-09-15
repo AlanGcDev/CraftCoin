@@ -138,7 +138,7 @@ def Index(request):
     return render(request, "Index.html")
 
 def Servers_Top(request):
-    apps_to_check = ['Server1', 'Server2']  # Agrega aquí todos los nombres de tus apps
+    apps_to_check = ['VoxelCraft', 'Server1']  # Agrega aquí todos los nombres de tus apps
     server_info_list = []
 
     for app_name in apps_to_check:

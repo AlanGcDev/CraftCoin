@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class Server2Config(AppConfig):
+class VoxelcraftConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'Server2'
+    name = 'VoxelCraft'

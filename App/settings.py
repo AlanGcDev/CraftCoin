@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     
     'CraftCoin',
     'Server1',
-    'Server2',
+    'VoxelCraft',
 ]
 
 MIDDLEWARE = [
