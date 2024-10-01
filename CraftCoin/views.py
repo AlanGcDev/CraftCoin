@@ -175,9 +175,7 @@ def Servers_Top(request):
 def New_Servers(request):
     return render(request, "New-Servers.html")
 
-@login_required_with_message
 @require_http_methods(["GET", "POST"])
-@csrf_exempt
 def Ganar_Coins(request):
     if request.method == 'POST':
         if request.user.is_authenticated:
